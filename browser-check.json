@@ -1,11 +1,16 @@
 {
-  "date": "2026-11-23",
-  "environment": "Windows / Google Chrome / 本機 file URL",
-  "observations": [
-    {"check":"首頁能實際載入並執行 JavaScript 初始化","result":"PASS","evidence":"Chrome 顯示標題、開始任務、三張情境卡與 01 / 11；上一頁呈停用狀態。"},
-    {"check":"首頁視覺排版","result":"PASS","evidence":"已目視截圖，主標題、任務卡與導覽可讀；視窗高度不足時可捲動。"},
-    {"check":"實際瀏覽器逐關點擊與手機排版","result":"NOT_COMPLETED","evidence":"視窗連續回報 user input was detected，停止自動操作以避免干擾。三關邏輯另以 Node 模型測試全部 27 種組合，手機排版尚未實機測試。"}
+  "executedAtUtc": "2026-11-23T06:22:44.8100605Z",
+  "url": "https://thwanglaboratory.github.io/campus-phishing-wiki/",
+  "environment": "ChatGPT in-app browser / 正式 GitHub Pages",
+  "checks": [
+    "首頁正常載入",
+    "三關選擇正確答案，各顯示正確解析",
+    "結果頁顯示 3 / 3 與三關完成",
+    "重新闖關清除答案；錯誤選項顯示修正建議",
+    "只答一題時顯示還有兩題未作答",
+    "Wiki 搜尋 HTTPS 找到 3 個頁面或來源",
+    "流程頁顯示三輪 FAIL、FAIL、PASS 紀錄"
   ],
-  "previewIssue": "內建瀏覽器無法連接本機 HTTP 預覽，已改以 Chrome 開啟本機 HTML。"
+  "result": "PASS",
+  "limitations": "尚未進行手機實機驗證；未宣稱已做所有裝置的視覺測試。"
 }
-

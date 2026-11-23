@@ -4,16 +4,16 @@
 
 ## 成果入口
 
-- [HTML 教學簡報](index.html)：11 頁、三道決策題、即時解析與首次作答評分。
-- [LLM Wiki](wiki.html)：6 篇官方來源、5 個 Wiki 頁面、15 個來源可追溯重點。
-- [流程、檢查紀錄與反思](workflow.html)。
+- [HTML 教學簡報](https://thwanglaboratory.github.io/campus-phishing-wiki/)：11 頁、三道決策題、即時解析與首次作答評分。
+- [LLM Wiki](https://thwanglaboratory.github.io/campus-phishing-wiki/wiki.html)：6 篇官方來源、5 個 Wiki 頁面、15 個來源可追溯重點。
+- [流程、檢查紀錄與反思](https://thwanglaboratory.github.io/campus-phishing-wiki/workflow.html)。
 - [繳交說明](繳交說明.txt)。
 
 GitHub 儲存庫中的 HTML 連結用來檢視原始檔；實際互動請使用部署完成後的 GitHub Pages，或下載整份專案並用瀏覽器開啟 `index.html`。
 
 ## LLM Wiki 建立方式
 
-先討論教學主題、對象與呈現方式，再開始生成。使用者選擇釣魚訊息辨識與校園情境闖關；Codex 協助讀取官方資料，將摘要、標籤、適用範圍與來源對應匯入 `dist/knowledge.json`，整理成可互相連結的 Wiki。
+先討論教學主題、對象與呈現方式，再開始生成。使用者選擇釣魚訊息辨識與校園情境闖關；Codex 協助讀取官方資料，將摘要、標籤、適用範圍與來源對應匯入 `knowledge.json`，整理成可互相連結的 Wiki。
 
 這是 LLM 協作編輯的靜態 Wiki，不含瀏覽時的模型 API 或向量資料庫。來源筆記保存摘要與官方 URL，未鏡像全文。若課程指定特定 Wiki 平台，需再匯入該平台。
 
@@ -25,7 +25,7 @@ GitHub 儲存庫中的 HTML 連結用來檢視原始檔；實際互動請使用�
 
 ## 重現與驗證
 
-安裝 Node.js 後，在專案根目錄執行：
+先下載並解壓縮 [完整專案](full-project.zip)，安裝 Node.js 後，在解壓縮的專案根目錄執行：
 
 ```sh
 node scripts/retrieve.mjs
@@ -36,7 +36,7 @@ node scripts/validate.mjs
 
 檢查涵蓋來源對應、內部連結、JavaScript 語法、11 頁導覽及三題全部 27 種作答組合。重跑會更新檢索時間，並附加新的覆蓋檢查紀錄。
 
-Chrome 已實際載入首頁並目視檢查。逐關瀏覽器操作與手機實機驗證尚未完成，請參考 [瀏覽器檢查紀錄](browser-check.json)，不要將程式模型測試視為完整視覺測試。
+已在正式 GitHub Pages 實測三關正確作答、錯誤解析、3 / 3 評分、未完成提示、重設、Wiki 搜尋與流程頁導覽。手機實機驗證尚未完成，請參考 [瀏覽器檢查紀錄](browser-check.json)，不要將程式模型測試視為完整視覺測試。
 
 ## GitHub Pages
 
@@ -45,5 +45,6 @@ Chrome 已實際載入首頁並目視檢查。逐關瀏覽器操作與手機實�
 ## AI 協作
 
 使用者選定主題與闖關形式；Codex 協助查找來源、編輯 Wiki、製作 HTML 與檢查腳本。所有學校、訊息、金額與示例網址皆為虛構教學設計。
+
 
 
