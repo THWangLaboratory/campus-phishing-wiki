@@ -1,0 +1,129 @@
+[
+  {
+    "executedAt": "2026-11-23T05:22:10.136Z",
+    "result": "FAIL",
+    "checks": [
+      {
+        "query": "Q01",
+        "required": [
+          "C01",
+          "C07",
+          "C13"
+        ],
+        "missing": []
+      },
+      {
+        "query": "Q02",
+        "required": [
+          "C08",
+          "C14"
+        ],
+        "missing": []
+      },
+      {
+        "query": "Q03",
+        "required": [
+          "C04",
+          "C07",
+          "C15"
+        ],
+        "missing": [
+          "C15"
+        ]
+      },
+      {
+        "query": "Q04",
+        "required": [
+          "C09",
+          "C10",
+          "C11"
+        ],
+        "missing": []
+      }
+    ]
+  },
+  {
+    "executedAt": "2026-11-23T05:22:19.777Z",
+    "result": "FAIL",
+    "checks": [
+      {
+        "query": "Q01",
+        "required": [
+          "C01",
+          "C07",
+          "C13"
+        ],
+        "missing": []
+      },
+      {
+        "query": "Q02",
+        "required": [
+          "C08",
+          "C14"
+        ],
+        "missing": []
+      },
+      {
+        "query": "Q03",
+        "required": [
+          "C04",
+          "C07",
+          "C15"
+        ],
+        "missing": [
+          "C07"
+        ]
+      },
+      {
+        "query": "Q04",
+        "required": [
+          "C09",
+          "C10",
+          "C11"
+        ],
+        "missing": []
+      }
+    ]
+  },
+  {
+    "executedAt": "2026-11-23T05:22:30.327Z",
+    "result": "PASS",
+    "checks": [
+      {
+        "query": "Q01",
+        "required": [
+          "C01",
+          "C07",
+          "C13"
+        ],
+        "missing": []
+      },
+      {
+        "query": "Q02",
+        "required": [
+          "C08",
+          "C14"
+        ],
+        "missing": []
+      },
+      {
+        "query": "Q03",
+        "required": [
+          "C04",
+          "C07",
+          "C15"
+        ],
+        "missing": []
+      },
+      {
+        "query": "Q04",
+        "required": [
+          "C09",
+          "C10",
+          "C11"
+        ],
+        "missing": []
+      }
+    ]
+  }
+]

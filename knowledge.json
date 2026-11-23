@@ -1,0 +1,40 @@
+{
+  "title": "這個連結可以點嗎？給大學生的釣魚訊息辨識入門",
+  "date": "2026-11-23",
+  "sources": [
+    {"id":"S01","org":"美國 FTC","title":"How To Recognize and Avoid Phishing Scams","url":"https://consumer.ftc.gov/articles/how-recognize-avoid-phishing-scams","summary":"釣魚會假借熟悉機構之名，以帳戶問題、付款或好處誘導人點連結、交出資料。應改由已知可靠的聯絡方式查證，並使用多因素驗證。","scope":"一般防釣魚原則；美國通報方式不直接套用臺灣。","tags":["釣魚","帳號","獎學金","驗證"]},
+    {"id":"S02","org":"美國 FTC","title":"Protect yourself from phishing scams","url":"https://consumer.ftc.gov/consumer-alerts/2025/04/protect-yourself-phishing-scams","summary":"收到意外訊息時，避免點連結或下載附件。以自己確認過的網站、電話或電子郵件查證；垃圾郵件過濾與雙因素驗證可增加保護。","scope":"預防與獨立查證；不代表所有通知都屬詐騙。","tags":["查證","帳號","附件"]},
+    {"id":"S03","org":"美國 FBI","title":"Spoofing and Phishing","url":"https://www.fbi.gov/how-we-can-help-you/common-frauds-and-scams/spoofing-and-phishing","summary":"寄件名稱、電子郵件地址與網址可能遭偽裝，少量字元差異也可能誤導人。應檢查完整地址，並自行查找機構的聯絡方式。","scope":"地址與身分偽裝；網址外觀是線索，不能取代獨立查證。","tags":["網址","寄件者","偽裝","獎學金"]},
+    {"id":"S04","org":"英國 NCSC","title":"Phishing","url":"https://www.ncsc.gov.uk/section/respond-recover/phishing","summary":"誤點後須依是否輸入資料、下載檔案或安裝軟體分流。洩漏密碼應更改相同密碼的帳戶；交出金融資料應立即聯絡銀行；組織裝置應告知資訊部門。","scope":"採用事件分流原則；英國的通報窗口不直接套用臺灣。","tags":["誤點","處理","密碼","銀行"]},
+    {"id":"S05","org":"美國 FTC","title":"Think that text message is from USPS? It could be a scam","url":"https://consumer.ftc.gov/consumer-alerts/2025/04/think-text-message-usps-it-could-be-scam","summary":"假配送通知可把人帶到仿冒網頁收集個資與卡片資料。查包裹應回到原購物網站或訂單帳戶確認物流資訊。","scope":"原文以美國郵務為例；教材僅移用查證原則，不推論臺灣物流的收費政策。","tags":["包裹","付款","物流"]},
+    {"id":"S06","org":"Google Chrome 說明","title":"檢查網站連線是否安全","url":"https://support.google.com/chrome/answer/95617?hl=zh-Hant","summary":"連線安全狀態描述的是瀏覽器與網站間的連線。即使使用安全連線，仍需檢查網站名稱，謹慎提供個人資訊。","scope":"HTTPS 不等於網站身分可信；不同裝置的操作介面可能不同。","tags":["HTTPS","網址","連線"]}
+  ],
+  "pages": [
+    {"id":"W01","title":"釣魚的目的與誘因","tags":["釣魚","帳號","獎學金","停用"],"sources":["S01","S02"],"related":["W02","W03"],"claims":[
+      {"id":"C01","text":"釣魚訊息透過冒充可信對象，誘導你點擊、下載或交出敏感資料。","sources":["S01"]},
+      {"id":"C02","text":"帳戶出問題、要求付款或提供獎勵，都是可能出現的誘因；單一誘因不足以判定真偽。","sources":["S01","S02"]}
+    ]},
+    {"id":"W02","title":"寄件者、網址與 HTTPS","tags":["網址","HTTPS","寄件者","偽裝","校名"],"sources":["S03","S06"],"related":["W01","W03"],"claims":[
+      {"id":"C03","text":"顯示名稱與校徽可以被冒用，應檢查完整寄件地址與網址，不能只看熟悉的字樣。","sources":["S03"]},
+      {"id":"C04","text":"HTTPS 表示連線受到保護，不能單靠它認定網站就是官方。","sources":["S06"]},
+      {"id":"C05","text":"網址與已知官方地址不一致時，先停止操作，再透過獨立管道確認。","sources":["S03","S02"]}
+    ]},
+    {"id":"W03","title":"獨立查證：停、查、證","tags":["查證","帳號","獎學金","驗證","包裹"],"sources":["S01","S02","S05"],"related":["W02","W04","W05"],"claims":[
+      {"id":"C06","text":"停：先不點訊息內的連結、不開意外附件，也不在不明頁面輸入資料。","sources":["S02"]},
+      {"id":"C07","text":"查與證：從自己原本知道的官方網站或聯絡方式，確認通知與要求是否存在。","sources":["S01","S02"]},
+      {"id":"C08","text":"包裹有疑問時，回原購物網站或訂單帳戶查物流狀態。","sources":["S05"]}
+    ],"note":"「停、查、證」是本教材為教學自行整理的口訣，不是官方認證標準。"},
+    {"id":"W04","title":"誤點之後怎麼辦","tags":["誤點","處理","密碼","銀行","下載"],"sources":["S04","S01"],"related":["W03","W05"],"claims":[
+      {"id":"C09","text":"只有點開、未輸入資料或下載安裝：停止互動並留意帳戶異常；不能直接斷言已中毒。","sources":["S04"]},
+      {"id":"C10","text":"已交出密碼：從可信官方入口立即修改該密碼，連同其他共用相同密碼的帳戶一起處理。","sources":["S04"]},
+      {"id":"C11","text":"已交出金融資料應立即聯絡銀行；曾下載或安裝可疑程式，應進行安全掃描；校方裝置或帳戶可向資訊單位求助。","sources":["S04"]},
+      {"id":"C12","text":"多因素驗證可增加帳戶保護，不能因此省略訊息查證。","sources":["S01","S02"]}
+    ]},
+    {"id":"W05","title":"三個校園情境的教學映射","tags":["帳號","包裹","獎學金","案例"],"sources":["S01","S03","S05","S06"],"related":["W01","W02","W03","W04"],"claims":[
+      {"id":"C13","text":"帳號停用關卡：用假冒資訊中心與時間壓力，練習從原有校務入口查證。","sources":["S01","S03"],"kind":"教學情境設計"},
+      {"id":"C14","text":"包裹補費關卡：用小額付款要求，練習回到原訂單確認物流資訊。","sources":["S05"],"kind":"教學情境設計"},
+      {"id":"C15","text":"獎學金關卡：用意外好消息與 HTTPS，練習不憑單一線索判斷並向學務單位確認。","sources":["S01","S06"],"kind":"教學情境設計"}
+    ],"note":"案例、金額、學校與訊息文字均為自製示例，不是實際案件或來源原文；網址只顯示不可點擊的 .example 保留網域。"}
+  ]
+}
+

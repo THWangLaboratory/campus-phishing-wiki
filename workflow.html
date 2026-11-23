@@ -1,0 +1,133 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="給大學生的釣魚訊息辨識教學：三個情境關卡、可追溯的 LLM Wiki 與實作紀錄。"><title>流程、檢查紀錄與反思｜校園防釣魚</title><style>
+:root{color-scheme:dark;--bg:#0c1624;--panel:#152437;--line:#304356;--text:#f1f6fa;--muted:#b3c3d2;--mint:#a6f3c3;--cyan:#85dbf5;--orange:#ffc88a}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:18px/1.7 'Microsoft JhengHei','PingFang TC',system-ui,sans-serif}a{color:var(--cyan);text-underline-offset:4px}button,input{font:inherit}button,.button{cursor:pointer;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--text);padding:12px 20px;text-decoration:none;display:inline-block}button:hover,.button:hover{border-color:var(--mint)}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--orange);outline-offset:4px}button:disabled{opacity:.45;cursor:default}.primary{background:var(--mint);color:#0b2419;border-color:var(--mint);font-weight:800}.topbar{padding:20px 4vw;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);gap:16px}.brand{font-weight:800;color:var(--mint);letter-spacing:.08em}.toplinks{display:flex;gap:24px;font-size:15px}.toplinks a{color:var(--muted)}main{max-width:1320px;margin:auto;padding:42px 5vw 28px}.eyebrow{color:var(--mint);font-size:15px;font-weight:800;letter-spacing:.15em;margin:0 0 16px}h1{font-size:clamp(38px,5.2vw,76px);line-height:1.18;letter-spacing:-.045em;margin:0 0 24px}h2{font-size:clamp(30px,3vw,46px);line-height:1.3;margin:0 0 24px;letter-spacing:-.025em}h3{font-size:23px;line-height:1.4;margin:0 0 12px}p{margin:0 0 18px}.muted{color:var(--muted)}.lead{font-size:22px;color:var(--muted);max-width:680px}.accent{color:var(--mint)}.split{display:grid;grid-template-columns:1.04fr 1fr;gap:54px;align-items:center}.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px}.tag{display:inline-block;color:var(--cyan);font-size:14px;border:1px solid var(--line);border-radius:30px;padding:3px 12px;margin-bottom:16px}.note{font-size:15px;color:var(--muted);margin-top:20px}.message{background:#edf3f7;color:#142334;border-radius:16px;overflow:hidden;box-shadow:14px 18px 0 #1d3446}.message .sender{background:#dce7ee;padding:18px 24px;border-bottom:1px solid #c0d0da;font-size:15px}.message .body{padding:26px}.message .body p{margin-bottom:14px}.message code{color:#8b2940;background:#e2e9ee;padding:7px 9px;border-radius:5px;overflow-wrap:anywhere;display:block;font-size:16px}.message .demo{color:#526273;font-size:14px}.fake-action{padding:9px 17px;display:inline-block;background:#255d94;color:white;border-radius:6px;margin-top:9px}.choices{display:grid;gap:10px;margin-top:24px}.choice{text-align:left;width:100%;padding:14px 18px;line-height:1.5}.choice.selected{border-color:var(--orange)}.choice.correct{border-color:var(--mint);background:#183c32}.feedback{margin-top:18px;padding:18px;border-left:4px solid var(--mint);background:#132d2b}.feedback.bad{border-color:var(--orange);background:#342a22}.refs{font-size:14px;color:var(--muted);margin-top:25px}.refs a{white-space:nowrap}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.stepnum{font-size:46px;color:var(--mint);line-height:1.2;margin-bottom:20px;font-weight:800}.rule{border-left:3px solid var(--mint);padding-left:20px;margin:22px 0}.bigline{font-size:clamp(30px,4vw,56px);font-weight:800;line-height:1.4}.subtitle{font-size:17px;color:var(--muted)}.slide{min-height:570px;animation:appear .25s ease-out}.slide[hidden]{display:none}@keyframes appear{from{opacity:.4;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}.deck-footer{max-width:1320px;margin:auto;padding:16px 5vw 25px}.footerrow{display:flex;align-items:center;justify-content:space-between;gap:12px}.navbuttons{display:flex;gap:12px}.counter{color:var(--muted);font-size:15px}.progress{height:4px;background:var(--line);margin-top:22px;border-radius:10px;overflow:hidden}.progress span{display:block;height:100%;background:var(--mint);transition:width .2s}.dots{display:flex;gap:7px;flex-wrap:wrap;margin-top:18px}.dot{width:24px;height:8px;border:0;padding:0;border-radius:4px;background:var(--line)}.dot[aria-current=true]{background:var(--mint)}.stack{display:grid;gap:18px}.incident{display:grid;grid-template-columns:180px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}.incident strong{color:var(--orange)}.wiki-layout{display:grid;grid-template-columns:240px 1fr;gap:40px}.wiki-nav{align-self:start;position:sticky;top:20px;display:grid;gap:12px;font-size:16px}.article{padding:28px 0;border-bottom:1px solid var(--line);scroll-margin-top:24px}.article .claim{padding:12px 0;scroll-margin-top:25px}.claim:target{background:#1c3848;outline:1px solid var(--cyan);padding:14px;border-radius:10px}.claim-id{font:14px/1.5 monospace;color:var(--mint)}.source{padding:22px;margin:14px 0;background:var(--panel);border:1px solid var(--line);border-radius:12px;scroll-margin-top:24px}.source h3{font-size:20px}.search{width:100%;padding:13px 16px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--text);margin:12px 0}.flow{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}.flow div{padding:14px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}table{width:100%;border-collapse:collapse;font-size:16px}td,th{text-align:left;padding:13px;border-bottom:1px solid var(--line);vertical-align:top}.tablewrap{overflow-x:auto}.pass{color:var(--mint)}.fail{color:var(--orange)}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;background:var(--panel);padding:20px;border-radius:12px}summary{cursor:pointer;color:var(--cyan);padding:10px 0}.document{max-width:1100px}.document section{margin-bottom:48px}.document h1{font-size:48px}.document h2{font-size:30px}.document li{margin-bottom:10px}.stamp{padding:8px 15px;background:#243b40;border-radius:6px;color:var(--mint);font-size:15px}.score{font-size:70px;color:var(--mint);font-weight:800;line-height:1.3}.mini-campus{position:relative;min-height:370px;padding:28px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(145deg,#193e46,#17283e);border:1px solid #38616a;border-radius:24px}.mini-campus .mail-card{padding:18px;background:#e7f0f5;color:#183044;border-radius:12px;transform:rotate(-4deg);margin:8px 20px}.mini-campus .mail-card:nth-child(2){transform:rotate(4deg);margin-left:55px}.mini-campus .mail-card:nth-child(3){transform:rotate(-2deg)}.mail-card span{display:block;color:#56717c;font-size:14px}.mail-card b{font-size:21px}.callout{background:#203b3d;border-radius:10px;padding:18px;border:1px solid #41615a}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+@media(max-width:850px){.split,.grid3,.wiki-layout{grid-template-columns:1fr;gap:26px}.topbar{align-items:flex-start}.toplinks{gap:12px;flex-wrap:wrap}.brand{font-size:15px;min-width:110px}main{padding:28px 6vw}.slide{min-height:0}.mini-campus{min-height:280px}.wiki-nav{position:static}.incident{grid-template-columns:1fr;gap:7px}.document h1{font-size:36px}.footerrow{flex-wrap:wrap}.message{box-shadow:7px 9px 0 #1d3446}.lead{font-size:20px}.panel{padding:22px}body{font-size:17px}.refs{line-height:2}.toplinks{font-size:14px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}@media print{body{background:white;color:black}.topbar,.deck-footer,.choices,button{display:none!important}.slide[hidden]{display:block!important}.slide{min-height:0;break-after:page;padding:25px 0;animation:none}.panel,.message,.callout{background:#f3f5f7;color:black;box-shadow:none}.muted,.lead,.refs,.eyebrow{color:#334}.accent,.stepnum{color:#175b42}a{color:#15598b}.wiki-layout{display:block}.wiki-nav{display:none}.source{background:#f5f5f5}}
+</style></head><body><header class="topbar"><div class="brand">CAMPUS / 防釣魚實驗室</div><nav class="toplinks" aria-label="主要導覽"><a href="index.html" >教學闖關</a><a href="wiki.html" >LLM Wiki</a><a href="workflow.html" aria-current="page">流程與實作紀錄</a></nav></header><main class="document"><p class="eyebrow">WORKFLOW / 執行與反思</p><h1>先有依據，才產生教學。</h1><p class="lead">這份作業的 graph 包含資料整理、Wiki 檢索、來源覆蓋檢查與 HTML 驗證。查不到足夠依據，就回到前面修正。</p><section><h2>01　先討論，後生成</h2><p>本次對話先提出多個主題，由使用者選擇「釣魚訊息辨識」；接著討論教學對象、三種校園情境與風格，由使用者選擇「校園生活情境闖關」，之後才開始蒐集資料與生成成果。這是對話決策摘要，不是逐字稿。</p><p>教學目標：讓沒有資安背景的大學生理解釣魚的目的，辨識可疑線索，並選擇獨立查證與事件分流的下一步。</p></section><section><h2>02　實際使用的 graph</h2><div class="flow" role="img" aria-label="討論、蒐集來源、來源與地區檢查、摘要入庫、查詢 Wiki、檢查覆蓋、編排教學、HTML 驗證，失敗則回到對應節點"><div>討論主題與玩法</div><span aria-hidden="true">→</span><div>取得 6 篇官方資料</div><span aria-hidden="true">→</span><div>檢查來源與適用範圍</div><span aria-hidden="true">→</span><div>摘要、標籤、重點入 Wiki</div><span aria-hidden="true">→</span><div>依教學問題查詢 Wiki</div><span aria-hidden="true">→</span><div>檢查必要重點是否齊全</div><span aria-hidden="true">→</span><div>編排關卡與 HTML</div><span aria-hidden="true">→</span><div>功能、排版與連結檢查</div></div><div class="stack"><div class="callout"><strong>檢索 loop：</strong>必要重點缺漏 → 改查詢詞或取回筆數 → 重查 Wiki → 再檢查。Wiki 本身沒有答案時，才回到來源取得與 ingest。</div><div class="callout"><strong>內容 loop：</strong>無法對應來源、把線索說成定論、誤用外國政策 → 修正 Wiki 或教學說明 → 再核對依據。</div><div class="callout"><strong>呈現 loop：</strong>按鈕、評分、連結或排版有問題 → 修正 HTML → 重新驗證受影響的功能。</div></div><p class="note">這是本次 AI 協作執行的工作流，不是 LangGraph 程式或部署中的自動代理。瀏覽端僅執行導覽、搜尋與測驗；不連接 LLM API。</p></section><section><h2>03　Wiki 如何變成簡報？</h2><p>資料先整理成 <a href="knowledge.json">knowledge.json</a>：6 個來源、5 個 Wiki 頁面與 15 個重點。查詢腳本用中文關鍵字匹配頁面標籤，依命中數排序。生成階段依查詢結果選取重點，再由 LLM 編排三個自製情境。</p><div class="tablewrap"><table><thead><tr><th>教學區段</th><th>查詢</th><th>Wiki 重點</th><th>來源</th></tr></thead><tbody><tr><td>基本概念與帳號關卡</td><td>Q01</td><td>W01、W03、W05 / C01、C07、C13</td><td>S01、S02、S03</td></tr><tr><td>包裹補費</td><td>Q02</td><td>W03、W05 / C08、C14</td><td>S05</td></tr><tr><td>獎學金與 HTTPS</td><td>Q03</td><td>W02、W03、W05 / C04、C07、C15</td><td>S01、S02、S06</td></tr><tr><td>誤點後分流</td><td>Q04</td><td>W04 / C09、C10、C11</td><td>S04</td></tr></tbody></table></div><p class="note">各頁下方可點「Wiki 依據」回查重點。來源 ID 存在與覆蓋檢查只能確認連結關係；語意是否正確仍由對照官方段落審閱。</p></section><section><h2>04　一次實際執行：檢索失敗兩次</h2><p>在產生 HTML 前，先定義每個問題所需的重點 ID，再執行檢索與自動覆蓋檢查。下表直接取自實際產生的紀錄。</p><div class="tablewrap"><table><thead><tr><th>輪次 / 臺北時間</th><th>結果</th><th>觀察與調整</th></tr></thead><tbody><tr><td>第 1 輪<br>2026/11/23 13:22:10</td><td class="fail">FAIL</td><td>Q03 缺 C15：查到原理卻沒取回情境頁。在查詢詞加入「案例」。</td></tr><tr><td>第 2 輪<br>2026/11/23 13:22:19</td><td class="fail">FAIL</td><td>Q03 改缺 C07：前三筆的容量讓獨立查證頁被排除。將 Q03 取回筆數提高為 4。</td></tr><tr><td>第 3 輪<br>2026/11/23 13:22:30</td><td class="pass">PASS</td><td>四組查詢的必要重點全部取回，開始產生教學 HTML。</td></tr></tbody></table></div><p><a href="grounding-history.json">下載三輪原始檢查紀錄</a> · <a href="retrieval.json">下載最終檢索結果</a> · <a href="validation.json">HTML 結構與邏輯驗證</a></p><details><summary>查看三輪紀錄 JSON</summary><pre>[
+  {
+    &quot;executedAt&quot;: &quot;2026-11-23T05:22:10.136Z&quot;,
+    &quot;result&quot;: &quot;FAIL&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;query&quot;: &quot;Q01&quot;,
+        &quot;required&quot;: [
+          &quot;C01&quot;,
+          &quot;C07&quot;,
+          &quot;C13&quot;
+        ],
+        &quot;missing&quot;: []
+      },
+      {
+        &quot;query&quot;: &quot;Q02&quot;,
+        &quot;required&quot;: [
+          &quot;C08&quot;,
+          &quot;C14&quot;
+        ],
+        &quot;missing&quot;: []
+      },
+      {
+        &quot;query&quot;: &quot;Q03&quot;,
+        &quot;required&quot;: [
+          &quot;C04&quot;,
+          &quot;C07&quot;,
+          &quot;C15&quot;
+        ],
+        &quot;missing&quot;: [
+          &quot;C15&quot;
+        ]
+      },
+      {
+        &quot;query&quot;: &quot;Q04&quot;,
+        &quot;required&quot;: [
+          &quot;C09&quot;,
+          &quot;C10&quot;,
+          &quot;C11&quot;
+        ],
+        &quot;missing&quot;: []
+      }
+    ]
+  },
+  {
+    &quot;executedAt&quot;: &quot;2026-11-23T05:22:19.777Z&quot;,
+    &quot;result&quot;: &quot;FAIL&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;query&quot;: &quot;Q01&quot;,
+        &quot;required&quot;: [
+          &quot;C01&quot;,
+          &quot;C07&quot;,
+          &quot;C13&quot;
+        ],
+        &quot;missing&quot;: []
+      },
+      {
+        &quot;query&quot;: &quot;Q02&quot;,
+        &quot;required&quot;: [
+          &quot;C08&quot;,
+          &quot;C14&quot;
+        ],
+        &quot;missing&quot;: []
+      },
+      {
+        &quot;query&quot;: &quot;Q03&quot;,
+        &quot;required&quot;: [
+          &quot;C04&quot;,
+          &quot;C07&quot;,
+          &quot;C15&quot;
+        ],
+        &quot;missing&quot;: [
+          &quot;C07&quot;
+        ]
+      },
+      {
+        &quot;query&quot;: &quot;Q04&quot;,
+        &quot;required&quot;: [
+          &quot;C09&quot;,
+          &quot;C10&quot;,
+          &quot;C11&quot;
+        ],
+        &quot;missing&quot;: []
+      }
+    ]
+  },
+  {
+    &quot;executedAt&quot;: &quot;2026-11-23T05:22:30.327Z&quot;,
+    &quot;result&quot;: &quot;PASS&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;query&quot;: &quot;Q01&quot;,
+        &quot;required&quot;: [
+          &quot;C01&quot;,
+          &quot;C07&quot;,
+          &quot;C13&quot;
+        ],
+        &quot;missing&quot;: []
+      },
+      {
+        &quot;query&quot;: &quot;Q02&quot;,
+        &quot;required&quot;: [
+          &quot;C08&quot;,
+          &quot;C14&quot;
+        ],
+        &quot;missing&quot;: []
+      },
+      {
+        &quot;query&quot;: &quot;Q03&quot;,
+        &quot;required&quot;: [
+          &quot;C04&quot;,
+          &quot;C07&quot;,
+          &quot;C15&quot;
+        ],
+        &quot;missing&quot;: []
+      },
+      {
+        &quot;query&quot;: &quot;Q04&quot;,
+        &quot;required&quot;: [
+          &quot;C09&quot;,
+          &quot;C10&quot;,
+          &quot;C11&quot;
+        ],
+        &quot;missing&quot;: []
+      }
+    ]
+  }
+]</pre></details></section><section><h2>05　反思與流程調整</h2><h3>哪一個節點最常出錯？</h3><p>在這次有限的執行中，Wiki 檢索節點連續兩次未取回完整依據。問題不是資料沒入庫，而是關鍵字與前三筆排序無法同時涵蓋「原理、情境、行動」。這是本次的觀察，不能推論所有 LLM Wiki 都如此。</p><h3>把檢查往前移到哪裡？</h3><p>從「HTML 完成後才看內容是否完整」，提前到「檢索後、生成大綱與關卡前」。先列出每題需要哪些重點，再檢查取回結果，避免漂亮的簡報掩蓋依據缺漏。</p><h3>有修改 graph 嗎？為什麼？</h3><p>有。加上「必要重點覆蓋檢查」這個 gate 與回到檢索的 loop。第一次失敗改查詢意圖，第二次失敗擴大 Q03 的取回範圍，第三次才放行。其餘查詢維持最多三筆，避免無差別加入太多材料。</p><h3>還有哪些限制？</h3><p>目前是小型、靜態的 LLM 協作 Wiki，詞彙檢索不理解同義詞。ID 覆蓋不等於事實查核；仍須人工檢視來源、語意與地區適用性。六篇資料沒有經過多位獨立審查，也未做學生學習成效實驗。</p></section><section><h2>06　繳交前自行完成</h2><p>親自完成三關，確認所有連結能開啟，並加入自己的試玩觀察。若課程要求特定 LLM Wiki 平台，請將附上的來源筆記與 Wiki Markdown 匯入指定平台；本作業說明未提供該平台名稱。</p><p>繳交標題：<strong>學校 學號 系級 姓名 這個連結可以點嗎</strong></p><p class="note">姓名、學號與學校尚未提供，因此不代填。AI 協作：來源整理、Wiki 編輯、HTML 與檢查腳本由 Codex 協助完成；主題與玩法由使用者選定。</p></section></main></body></html>
