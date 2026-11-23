@@ -1,0 +1,34 @@
+{
+  "executedAt": "2026-11-23T05:51:40.218Z",
+  "method": "Node 靜態連結與語法檢查，並以最小 DOM 模型執行實際的簡報 JavaScript。此模型不取代瀏覽器視覺測試。",
+  "checks": [
+    {
+      "name": "6 篇來源、5 個 Wiki 頁面、15 個重點均存在",
+      "result": "PASS"
+    },
+    {
+      "name": "每個 Wiki 重點都有有效來源 ID",
+      "result": "PASS"
+    },
+    {
+      "name": "內部頁面、檔案與 fragment 連結皆可解析",
+      "result": "PASS"
+    },
+    {
+      "name": "三份 HTML 的內嵌 JavaScript 語法正確",
+      "result": "PASS"
+    },
+    {
+      "name": "示例網址只呈現文字，沒有可點擊的 .example 連結",
+      "result": "PASS"
+    },
+    {
+      "name": "11 頁導覽、前後邊界與進度計算",
+      "result": "PASS"
+    },
+    {
+      "name": "27 種作答組合的評分、未作答提示與重設行為",
+      "result": "PASS"
+    }
+  ]
+}
